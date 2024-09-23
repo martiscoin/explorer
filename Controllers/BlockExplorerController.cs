@@ -11,6 +11,8 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
+using Blockcore.NBitcoin.BouncyCastle.math;
+using Blockcore.NBitcoin;
 
 namespace XOuranos.Explorer.Controllers
 {
@@ -77,67 +79,80 @@ namespace XOuranos.Explorer.Controllers
          }
       }
 
-      [HttpGet]
-      [Route("netstatsblocktime")]
-      public dynamic GetNetworkStatsBlockTime()
-      {
-         List<dynamic> blocks = indexService.GetLast50Blocks();
-         dynamic result = null;
-         List<string> blockindex = new List<string>();
-         List<double> blocktime = new List<double>();
-         double avgBlocktime = 0;
-         Int64 firstime = 0;
-         foreach (Dictionary<string, object> block in blocks)
-         {
-            if (firstime <= 0)
+        [HttpGet]
+        [Route("netstatsblocktime")]
+        public dynamic GetNetworkStatsBlockTime()
+        {
+            List<dynamic> blocks = indexService.GetLast50Blocks();
+            dynamic result = null;
+            List<string> blockindex = new List<string>();
+            List<double> blocktime = new List<double>();
+            double avgBlocktime = 0;
+            Int64 firstime = 0;
+            foreach (Dictionary<string, object> block in blocks)
             {
-               firstime = (Int64)block.GetValueOrDefault("blockTime");
+
+                if (firstime <= 0)
+                {
+                    firstime = (Int64)block.GetValueOrDefault("blockTime");
+                }
+                else
+                {
+                    blockindex.Add(block.GetValueOrDefault("blockIndex").ToString());
+                    Int64 current = (Int64)block.GetValueOrDefault("blockTime");
+                    var diff = ((double)block.GetValueOrDefault("difficulty"));
+                    if (diff > 3000)
+                    {
+                        firstime = current;
+                        continue;
+                    }
+                    double dt = ((current - firstime));
+                    blocktime.Add(dt);
+                    avgBlocktime += dt;
+                    firstime = current;
+                }
             }
-            else
+            avgBlocktime = avgBlocktime / blocktime.Count;
+
+            result = new
             {
-               blockindex.Add(block.GetValueOrDefault("blockIndex").ToString());
-               Int64 current = (Int64)block.GetValueOrDefault("blockTime");
-               double dt = ((current - firstime));
-               blocktime.Add(dt);
-               avgBlocktime += dt;
-               firstime = current;
+                x = blockindex,
+                y = blocktime,
+                avg = avgBlocktime.ToString("0.00")
+            };
+            return result;
+        }
+
+        [HttpGet]
+        [Route("netstatshashrate")]
+        public dynamic GetNetworkStatsHashrate()
+        {
+            List<dynamic> blocks = indexService.GetLast50Blocks();
+            dynamic result = null;
+            List<string> blockindex = new List<string>();
+            List<double> hashrates = new List<double>();
+            double avgHashrate = 0;
+            foreach (Dictionary<string, object> block in blocks)
+            {
+                blockindex.Add(block.GetValueOrDefault("blockIndex").ToString());
+                var diff = ((double)block.GetValueOrDefault("difficulty"));
+                if (diff > 3000) continue;
+                var currentDifficulty = BigInteger.ValueOf((long)diff);
+                var hashrate = currentDifficulty.Multiply(BigInteger.ValueOf(2).Pow(256))
+                                             .Divide(new Target(new byte[] { 0x1d, 0x00, 0xff, 0xff }).ToBigInteger()).Divide(BigInteger.ValueOf(10 * 60))
+                                             .LongValue / 1_000_000.0;
+                avgHashrate += hashrate;
+                hashrates.Add(hashrate);
             }
-         }
-         avgBlocktime = avgBlocktime / blocktime.Count;
-
-         result = new
-         {
-            x = blockindex,
-            y = blocktime,
-            avg= avgBlocktime.ToString("0.00")
-         };
-         return result;
-      }
-
-      [HttpGet]
-      [Route("netstatshashrate")]
-      public dynamic GetNetworkStatsHashrate()
-      {
-         List<dynamic> blocks = indexService.GetLast50Blocks();
-         dynamic result = null;
-         List<string> blockindex = new List<string>();
-         List<double> difficulty = new List<double>();
-         double avgHashrate = 0;
-         foreach (Dictionary<string, object> block in blocks)
-         {
-            blockindex.Add(block.GetValueOrDefault("blockIndex").ToString());
-            difficulty.Add((double)block.GetValueOrDefault("difficulty") * 1000);
-            avgHashrate += ((double)block.GetValueOrDefault("difficulty")) * 1000;
-         }
-         avgHashrate = avgHashrate / difficulty.Count;
-         result = new
-         {
-            x = blockindex,
-            y = difficulty,
-            avg = avgHashrate.ToString("0.00")
-         };
-         return result;
-      }
+            avgHashrate = avgHashrate / hashrates.Count;
+            result = new
+            {
+                x = blockindex,
+                y = hashrates,
+                avg = avgHashrate.ToString("0.00")
+            };
+            return result;
+        }
 
       [HttpGet]
       [Route("netstatsdifficulty")]
@@ -150,7 +165,9 @@ namespace XOuranos.Explorer.Controllers
          double avgDifficulty = 0;
          foreach (Dictionary<string, object> block in blocks)
          {
-            blockindex.Add(block.GetValueOrDefault("blockIndex").ToString());
+                var diff = ((double)block.GetValueOrDefault("difficulty"));
+                if (diff > 3000) continue;
+                blockindex.Add(block.GetValueOrDefault("blockIndex").ToString());
             difficulty.Add((double)block.GetValueOrDefault("difficulty"));
             avgDifficulty += (double)block.GetValueOrDefault("difficulty");
          }

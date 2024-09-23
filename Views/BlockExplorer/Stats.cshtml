@@ -76,7 +76,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Hashrate</strong></td>
-                                <td></td>
+                                <td id="avgHashrate"></td>
                             </tr>
                             <tr>
                                 <td><strong>Avg Block Time</strong></td>
@@ -170,7 +170,8 @@
                 success: function (res) {
                     option.xAxis[0].data = res.x;
                     option.series[0].data = res.y;
-                    option.title[0].text = "Last 30 blocks (avg hashrate " + res.avg + "s)";
+                    option.title[0].text = "Last 30 blocks (avg hashrate " + res.avg + " MH/s)";
+                    $("#avgHashrate").text(res.avg+" MH/s")
                     myChart.setOption(option);
                 }
             });

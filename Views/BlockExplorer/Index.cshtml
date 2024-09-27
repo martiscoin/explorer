@@ -10,6 +10,33 @@
          position: relative;
          color: #111111;
       }
+
+        .pagelink
+        {
+            border: solid 1px #ccc;
+            padding: 7px;
+            width: 100px;
+            cursor:pointer;
+            color:#ccc;
+        }
+
+            .pagelink:hover {
+                border-color: #256592;
+            }
+
+        .pagelink2
+        {
+            border: solid 1px #ccc;
+            padding: 7px 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .pagelink2:hover {
+            border-color: #256592;
+        }
    </style>
 }
 <partial name="SearchBlock" />
@@ -62,8 +89,13 @@
                   </tbody>
                </table>
             </div>
-                <a href="https://www.xouranos.com/" target="_blank" class="btn-white-line"><i class="fas fa-globe"></i> Prev</a>
-                <a href="https://www.xouranos.com/" target="_blank" class="btn-white-line"><i class="fas fa-globe"></i> Next</a>
+                <div style="text-align:center;padding-top:15px;">
+                    <a class="pagelink" onclick="firstpage()"> << </a>
+                    <a class="pagelink2" onclick="prevpage()"> < </a>
+                    <span class="pagetext"> @ViewBag.PageIndex / @ViewBag.PageTotal </span>
+                    <a class="pagelink2" onclick="nextpage()"> > </a>
+                    <a class="pagelink" onclick="lastpage()"> >> </a>
+                </div>
 
             @if (ViewBag.Error != null)
             {
@@ -74,6 +106,22 @@
       </div>
    </div>
 </section>
+
+<script type="text/javascript">
+    function firstpage() {
+        window.location.href = "/block-explorer";
+    }
+    function prevpage() {
+        window.location.href = "/block-explorer?page=" + (@ViewBag.PageIndex-1);
+    }
+    function nextpage() {
+        window.location.href = "/block-explorer?page=" + (@ViewBag.PageIndex+1);
+    }
+    function lastpage() {
+        window.location.href = "/block-explorer?page=" + @ViewBag.PageTotal;
+    }
+
+</script>
 
 <script type="text/javascript">
     var hashrate = [];
@@ -103,7 +151,7 @@
             title: [
                 {
                     left: 'center',
-                    text: 'Last 30 blocks'
+                    text: ''
                 }
             ],
             tooltip: {
@@ -133,12 +181,12 @@
         option = {
             xAxis: {
                 type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: []
             },
             title: [
                 {
                     left: 'center',
-                    text: 'Last 30 blocks'
+                    text: ''
                 }
             ],
             yAxis: {
@@ -146,7 +194,7 @@
             },
             series: [
                 {
-                    data: [120, 200, 150, 80, 70, 110, 130],
+                    data: [],
                     type: 'bar'
                 }
             ]

@@ -1392,7 +1392,7 @@ header
    }
 
     .header-area {
-        background: transparent;
+        background: #0c3e75;
         height: 80px;
         box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
     }

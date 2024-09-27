@@ -2,7 +2,7 @@ namespace XOuranos.Explorer.Settings
 {
    public class FeaturesSettings
    {
-      public bool Home { get; set; } = true;
+      public bool Home { get; set; } = false;
 
       public bool Ticker { get; set; } = true;
 

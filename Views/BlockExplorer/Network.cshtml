@@ -16,12 +16,14 @@
 <section class="block-explorer-section section bg-bottom">
    <div class="container">
       <div class="row">
-         <div class="col-lg-12">
-            <div class="center-heading">
-               <h2 class="section-title">NetWork Peers</h2>
-            </div>
-         </div>
+          <div class="col-lg-12">
+              <div class="center-heading">
+                  <h2 class="section-title">NetWork Peers</h2>
+              </div>
+              <div id="echart" style="height: 320px"></div>
+          </div>
       </div>
+      <div style="height:40px;"></div>
       <div class="row">
          <div class="col-lg-12">
 
@@ -67,3 +69,91 @@
       </div>
    </div>
 </section>
+<script type="text/javascript" src="https://registry.npmmirror.com/jquery/3.7.1/files/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+<script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+<script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var chartDom = document.getElementById('echart');
+        var myChart = echarts.init(chartDom);
+        var option;
+        var ROOT_PATH = '';
+        var uploadedDataURL = ROOT_PATH + '/flights.json';
+        myChart.showLoading();
+        $.getJSON(uploadedDataURL, function (data) {
+            myChart.hideLoading();
+            function getAirportCoord(idx) {
+                return [data.airports[idx][3], data.airports[idx][4]];
+            }
+            var routes = data.routes.map(function (airline) {
+                return [getAirportCoord(airline[1]), getAirportCoord(airline[2])];
+            });
+            myChart.setOption({
+                geo3D: {
+                    map: 'world',
+                    shading: 'realistic',
+                    silent: true,
+                    environment: '#333',
+                    realisticMaterial: {
+                        roughness: 0.8,
+                        metalness: 0
+                    },
+                    postEffect: {
+                        enable: true
+                    },
+                    groundPlane: {
+                        show: false
+                    },
+                    light: {
+                        main: {
+                            intensity: 1,
+                            alpha: 30
+                        },
+                        ambient: {
+                            intensity: 0
+                        }
+                    },
+                    viewControl: {
+                        distance: 70,
+                        alpha: 89,
+                        panMouseButton: 'left',
+                        rotateMouseButton: 'right'
+                    },
+                    itemStyle: {
+                        color: '#000'
+                    },
+                    regionHeight: 0.5
+                },
+                series: [
+                    {
+                        type: 'lines3D',
+                        coordinateSystem: 'geo3D',
+                        effect: {
+                            show: true,
+                            trailWidth: 1,
+                            trailOpacity: 0.5,
+                            trailLength: 0.2,
+                            constantSpeed: 5
+                        },
+                        blendMode: 'lighter',
+                        lineStyle: {
+                            width: 0.2,
+                            opacity: 0.05
+                        },
+                        data: routes
+                    }
+                ]
+            });
+
+            window.addEventListener('keydown', function () {
+                myChart.dispatchAction({
+                    type: 'lines3DToggleEffect',
+                    seriesIndex: 0
+                });
+            });
+            window.addEventListener('resize', myChart.resize);
+        });
+    });
+
+</script>

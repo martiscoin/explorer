@@ -19,10 +19,21 @@
    </environment>
    <link href="~/css/explorer.css" rel="stylesheet" type="text/css">
    @RenderSection("Style", false)
-    <script src="~/js/jquery-2.1.0.min.js"></script>
+    @if (Context.Request.Path.Equals(Url.Action("Network", "BlockExplorer")))
+    {
+        <script type="text/javascript" src="https://registry.npmmirror.com/jquery/3.7.1/files/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+        <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+    }
+    else
+    {
+        <script src="~/js/jquery-2.1.0.min.js"></script>
+        <script src="~/js/echarts.min.js"></script>
+    }
 </head>
 <body>
-    <header class="header-area">
+    <header class="header-area" style="background:#0c3e75">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -38,15 +49,15 @@
                               <li class="@(Context.Request.Path.Equals(Url.Action("Index", "Home")) ? "active":"")"><a asp-action="Index" asp-controller="Home"><i class="fa fa-home"></i> HOME</a></li>
                            }
 
-                            @if (ViewBag.Features.Stats)
-                            {
-                                <li class="@(Context.Request.Path.Equals(Url.Action("Stats", "BlockExplorer")) ? "active":"")"><a asp-action="Stats" asp-controller="BlockExplorer"><i class="fas fa-bars"></i> STATS</a></li>
-                            }
-
                            @if (ViewBag.Features.Explorer)
                            {
                               <li class="@(Context.Request.Path.Equals(Url.Action("Index", "BlockExplorer")) ? "active":"")"><a asp-action="Index" asp-controller="BlockExplorer"><i class="fa fa-cube"></i> BLOCKS</a></li>
                            }
+
+                            @if (ViewBag.Features.Stats)
+                            {
+                                <li class="@(Context.Request.Path.Equals(Url.Action("Stats", "BlockExplorer")) ? "active":"")"><a asp-action="Stats" asp-controller="BlockExplorer"><i class="fas fa-bars"></i> STATS</a></li>
+                            }
 
                            @if (ViewBag.Features.Network)
                            {
@@ -102,7 +113,6 @@
     <script src="~/js/jquery.downCount.js"></script>
     <script src="~/js/parallax.min.js"></script>
     <script src="~/js/particle-green.js"></script>
-    <script src="~/js/echarts.min.js"></script>
     <environment include="Development">
         <script src="~/js/default.js"></script>
     </environment>

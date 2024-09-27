@@ -47,10 +47,15 @@ namespace XOuranos.Explorer.Services
 
       public AddressModel GetTransactionsByAddress(string adddress)
       {
-         return Execute<AddressModel>(GetRequest($"/query/address/{adddress}/transactions"));
+         return Execute<AddressModel>(GetRequest($"/query/address/{adddress}"));
       }
 
-      public TransactionDetailsModel GetTransaction(string transactionId)
+        public List<dynamic> GetTransactionsListByAddress(string adddress,int offset)
+        {
+            return Execute<dynamic>(GetRequest($"/query/address/{adddress}/transactions?limit=10&sort=1&offset=" + offset));
+        }
+
+        public TransactionDetailsModel GetTransaction(string transactionId)
       {
          return Execute<TransactionDetailsModel>(GetRequest($"/query/transaction/{transactionId}"));
       }
@@ -75,7 +80,12 @@ namespace XOuranos.Explorer.Services
          return Execute<dynamic>(GetRequest($"/query/block?limit=30"));
       }
 
-      public string GetStatistics()
+        public List<dynamic> GetLastBlocks(int count,long offset,int sort)
+        {
+            return Execute<dynamic>(GetRequest($"/query/blocks?count=" + count + "&offset=" + offset + "&sort=" + sort + ""));
+        }
+
+        public string GetStatistics()
       {
          string result = Execute(GetRequest("/stats"));
          return result;

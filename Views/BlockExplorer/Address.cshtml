@@ -11,6 +11,31 @@
             position: relative;
             color: #111111;
         }
+
+        .pagelink {
+            border: solid 1px #ccc;
+            padding: 7px;
+            width: 100px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+            .pagelink:hover {
+                border-color: #256592;
+            }
+
+        .pagelink2 {
+            border: solid 1px #ccc;
+            padding: 7px 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+            .pagelink2:hover {
+                border-color: #256592;
+            }
     </style>
 }
 <partial name="SearchBlock" model="@(new SearchBlockExplorer())" />
@@ -79,17 +104,17 @@
                     <table class="table table-striped table-latests">
                         <thead>
                             <tr>
-                                <th>Hash</th>
-                                <th>Block</th>
-                                <th>Date/Time</th>
-                                <th>Amount</th>
+                                <td>Hash</td>
+                                <td>Block</td>
+                                <td>Date/Time</td>
+                                <td>Amount</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var transaction in Model.Transactions)
                             {
                                 <tr>
-                                    <td><a asp-controller="BlockExplorer" asp-action="Transaction" asp-route-transactionId="@transaction.TransactionHash">@transaction.TransactionHash.ToString().Substring(0, 25)...</a></td>
+                                    <td><a asp-controller="BlockExplorer" asp-action="Transaction" asp-route-transactionId="@transaction.TransactionHash">@transaction.TransactionHash.ToString()</a></td>
                                     <td><a asp-controller="BlockExplorer" asp-action="Block" asp-route-block="@transaction.BlockIndex">@transaction.BlockIndex</a></td>
                                     <td><time>@transaction.Time</time></td>
                                     <td><coin positive="@(transaction.Value > 0)">@transaction.Value</coin></td>
@@ -98,10 +123,25 @@
                         </tbody>
                     </table>
                 </div>
+                <div style="text-align:center;padding-top:15px;">
+                    <a class="pagelink2" onclick="prevpage()"> < </a>
+                    <span class="pagetext"> @ViewBag.PageIndex </span>
+                    <a class="pagelink2" onclick="nextpage()"> > </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    function prevpage() {
+        window.location.href = "/block-explorer/address/@Model.Address?page=" + (@ViewBag.PageIndex-1);
+    }
+    function nextpage() {
+        window.location.href = "/block-explorer/address/@Model.Address?page=" + (@ViewBag.PageIndex+1);
+    }
+
+</script>
+
 @section Scripts
 {
     <script type="text/javascript">

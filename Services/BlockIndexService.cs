@@ -37,7 +37,7 @@ namespace XOuranos.Explorer.Services
 
       public BlockModel GetBlockByHash(string blockHash)
       {
-         return Execute<BlockModel>(GetRequest($"/query/block/{blockHash}/transactions"));
+         return Execute<BlockModel>(GetRequest($"/query/block/{blockHash}"));
       }
 
       public BlockModel GetLatestBlock()

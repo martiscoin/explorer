@@ -79,13 +79,31 @@
         var myChart = echarts.init(chartDom);
         var option;
         var ROOT_PATH = '';
-        var uploadedDataURL = ROOT_PATH + '/flights.json';
+        var uploadedDataURL = ROOT_PATH + '/data.json?t='+Math.random();
         myChart.showLoading();
         $.getJSON(uploadedDataURL, function (data) {
             myChart.hideLoading();
             function getAirportCoord(idx) {
                 return [data.airports[idx][3], data.airports[idx][4]];
             }
+            data.routes = data.routes.sort((a, b) => a[0] - b[0]);
+            var newroutes=[];
+            var k = 0;
+            var n = 0;
+            for (var r = 0; r < data.routes.length;r++)
+        {
+                if (data.routes[r][0] == (n + 1)) {
+                    if (k >= 30) {
+                        n++;
+                        k = 0;
+                    }
+                    else {
+                        newroutes.push(data.routes[r]);
+                        k++;
+                    }
+                }
+        }
+        data.routes = newroutes;
             var routes = data.routes.map(function (airline) {
                 return [getAirportCoord(airline[1]), getAirportCoord(airline[2])];
             });
@@ -123,7 +141,7 @@
                     itemStyle: {
                         color: '#000'
                     },
-                    regionHeight: 0.5
+                    regionHeight: 0
                 },
                 series: [
                     {
@@ -134,7 +152,7 @@
                             trailWidth: 1,
                             trailOpacity: 0.5,
                             trailLength: 0.2,
-                            constantSpeed: 5
+                            constantSpeed: 10
                         },
                         blendMode: 'lighter',
                         lineStyle: {

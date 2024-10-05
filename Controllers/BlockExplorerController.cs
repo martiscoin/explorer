@@ -394,6 +394,11 @@ namespace XOuranos.Explorer.Controllers
 
             ViewBag.BlockchainHeight = stats.SyncBlockIndex;
             BlockModel block = indexService.GetBlockByHash(hash);
+            if (block != null)
+            {
+                block.Transactions = indexService.GetBlockTransactions(block.BlockIndex);
+                block.TransactionCount = block.Transactions.Count;
+            }
             return View("Block", block);
         }
 

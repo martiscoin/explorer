@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
         <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
-        <PackageReference Include="QRCoder" Version="1.3.9" />
+        <PackageReference Include="QRCoder.Core" Version="1.0.3" />
         <PackageReference Include="RestSharp" Version="106.10.1" />
        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.3" />
        <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.3.3" />

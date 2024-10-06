@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using QRCoder;
+using QRCoder.Core;
 
 namespace XOuranos.Explorer.Controllers
 {

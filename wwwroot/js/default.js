@@ -1,7 +1,6 @@
 (function (_0x2f2ex1) {
     'use strict';
     _0x2f2ex1(document)['ready'](function () {
-        //NProgress.start();
         $('[data-toggle="tooltip"]').tooltip();
         $(".copy-me").click(function () {
             $(this).parent().find(".to-copy").select();

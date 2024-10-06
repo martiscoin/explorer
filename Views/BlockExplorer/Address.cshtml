@@ -86,10 +86,11 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12">
-                <div class="qr">
-                    <img src="@Url.Action("Qr", "Home", new {value=Model.Address})" class="img-fluid d-block mx-auto" alt="">
+                <div class="qr" style="text-align:center;padding:10px;">
+                    <div src="" id="qrcode" class="img-fluid d-block mx-auto" alt="">
                 </div>
             </div>
+        </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
@@ -141,11 +142,12 @@
     }
 
 </script>
-
+<script src="~/js/jquery.qrcode.min.js"></script>
 @section Scripts
 {
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#qrcode").qrcode({  height: 256, text: '@Model.Address' });
             $(".copy-me").click(function () {
                 var tempField = document.createElement("textarea");
                 tempField.value = $(this).attr("data-value");

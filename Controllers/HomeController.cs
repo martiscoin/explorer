@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
-using XOuranos.Explorer.Models;
-using XOuranos.Explorer.Services;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Models;
+using Marscore.Explorer.Services;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using QRCoder.Core;
 
-namespace XOuranos.Explorer.Controllers
+namespace Marscore.Explorer.Controllers
 {
    [ApiExplorerSettings(IgnoreApi = true)]
    public class HomeController : Controller
@@ -45,10 +45,10 @@ namespace XOuranos.Explorer.Controllers
 
       public IActionResult Index()
       {
-         if (!settings.Features.Home)
-         {
-            return Redirect("/block-explorer");
-         }
+         //if (!settings.Features.Home)
+         //{
+         //   return Redirect("/block-explorer");
+         //}
 
          ViewBag.Features = settings.Features;
          ViewBag.Setup = settings.Setup;

@@ -1,10 +1,10 @@
-namespace XOuranos.Explorer.Settings
+namespace Marscore.Explorer.Settings
 {
    public class SetupSettings
    {
       public SetupSettings()
       {
-         Title = "XOuranos Explorer";
+         Title = "Marscore Explorer";
       }
 
       public string Title { get; set; }

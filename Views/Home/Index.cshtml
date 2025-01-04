@@ -42,10 +42,10 @@
                   </h1>
                }
 
-               <a asp-controller="BlockExplorer" asp-action="Index" class="btn-secondary-box"><i class="fa fa-cube"></i> View Blocks</a>
+               @* <a asp-controller="BlockExplorer" asp-action="Index" class="btn-secondary-box"><i class="fa fa-cube"></i> View Blocks</a> *@
                @if (ViewBag.Features.Ticker)
                {
-                  <a href="@ViewBag.Ticker.WebUrl" class="btn-secondary-box" target="_blank"><i class="fas fa-dollar-sign"></i> Price Details</a>
+                  @* <a href="@ViewBag.Ticker.WebUrl" class="btn-secondary-box" target="_blank"><i class="fas fa-dollar-sign"></i> Price Details</a> *@
                }
             </div>
          </div>

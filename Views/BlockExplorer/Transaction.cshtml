@@ -11,6 +11,11 @@
          position: relative;
          color: #111111;
       }
+
+        .table
+        {
+            background-color:#000 !important;
+        }
    </style>
 }
 <partial name="SearchBlock" model="@(new SearchBlockExplorer())" />
@@ -102,7 +107,7 @@
                               @foreach (var input in Model.Inputs)
                               {
                                  <small>
-                                    <div style="padding: .55rem .55rem" class="list-group-item list-group-item-action">
+                                    <div style="padding: .55rem .55rem;background-color:#111 !important;" class="list-group-item list-group-item-action" >
                                        <table class="table table-sm table-borderless table-sm">
                                           <tbody>
                                              @if (@input.InputAddress != null)
@@ -112,8 +117,14 @@
                                                    <td>
                                                       <a asp-controller="BlockExplorer" asp-action="Address" asp-route-address="@input.InputAddress">@input.InputAddress</a>
                                                    </td>
-                                                </tr>
-                                             }
+                                                                </tr>
+                                                            }
+                                                            else
+                                                            {
+                                                                <tr>
+                                                                    <td>coinbase</td>
+                                                                </tr>
+                                                            }
 
                                              @*<tr><td colspan="2"><strong>Prevout</strong></td></tr>
                                              <tr><td colspan="2"># @input.InputIndex - <a asp-controller="BlockExplorer" asp-action="Transaction" asp-route-transactionId="@input.InputTransactionId">@input.InputTransactionId</a></td></tr>
@@ -139,14 +150,14 @@
                               @foreach (var output in Model.Outputs)
                               {
                                  <small>
-                                    <div style="padding: .55rem .55rem; margin-bottom: 10px;" class="list-group-item list-group-item-action">
+                                                <div style="padding: .55rem .55rem; margin-bottom: 10px;background-color:#111 !important;" class="list-group-item list-group-item-action">
                                        <table class="table table-sm table-borderless table-sm">
                                           <tbody>
                                              @if (@output.Address != null)
                                              {
                                                 <tr>
                                                    <td><a asp-controller="BlockExplorer" asp-action="Address" asp-route-address="@output.Address">@output.Address</a></td>
-                                                   <td><coin>@output.Balance</coin></td>
+                                                                    <td><coin class="coin-value-positive" style="color:#23A236 !important">@output.Balance</coin></td>
 <td>
                                                       @if (!string.IsNullOrEmpty(output.SpentInTransaction))
                                                       {
@@ -202,9 +213,9 @@
                               @foreach (var input in Model.Inputs)
                               {
                                  <small>
-                                    <div style="padding: .55rem .55rem" class="list-group-item list-group-item-action">
+                                                <div style="padding: .55rem .55rem;background-color:#111 !important;" class="list-group-item list-group-item-action">
                                        <table class="table table-sm table-borderless table-sm">
-                                          <tbody>
+                                                        <tbody style="background-color:#333;">
                                              <tr><td colspan="2"><strong>ScriptSig</strong></td></tr>
                                              <tr><td colspan="2" class="multiline-text">@input.ScriptSig:</td></tr>
                                              <tr><td colspan="2"><strong>ScriptSig(Asm)</strong></td></tr>
@@ -227,9 +238,9 @@
                               @foreach (var output in Model.Outputs)
                               {
                                  <small>
-                                    <div style="padding: .55rem .55rem; margin-bottom: 10px;" class="list-group-item list-group-item-action">
+                                                <div style="padding: .55rem .55rem; margin-bottom: 10px;background-color:#111 !important;" class="list-group-item list-group-item-action">
                                        <table class="table table-sm table-borderless table-sm">
-                                          <tbody>
+                                          <tbody style="background-color:#333;">
                                              <tr><td>OutputType</td><td>@(output.OutputType == "TX_NULL_DATA" ? "OP_RETURN" : output.OutputType)</td></tr>
                                              <tr><td colspan="2"><strong>ScriptPubKey:</strong></td></tr>
                                              <tr><td colspan="2" class="multiline-text">@output.ScriptPubKey</td></tr>

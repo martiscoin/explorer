@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
-namespace XOuranos.Explorer.Handlers
+namespace Marscore.Explorer.Handlers
 {
    public class FavoriteIconHandler
    {

@@ -1,4 +1,4 @@
-namespace XOuranos.Explorer.Settings
+namespace Marscore.Explorer.Settings
 {
    public class FeaturesSettings
    {

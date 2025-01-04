@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using XOuranos.Explorer.Models;
-using XOuranos.Explorer.Models.ApiModels;
-using XOuranos.Explorer.Services;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Models;
+using Marscore.Explorer.Models.ApiModels;
+using Marscore.Explorer.Services;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
-using Blockcore.NBitcoin.BouncyCastle.math;
-using Blockcore.NBitcoin;
+using Marscore.NBitcoin.BouncyCastle.math;
+using Marscore.NBitcoin;
 
-namespace XOuranos.Explorer.Controllers
+namespace Marscore.Explorer.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
     [Route("block-explorer")]

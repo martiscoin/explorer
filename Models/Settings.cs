@@ -1,7 +1,7 @@
 //using System.Threading.Tasks;
 //using MongoDB.Driver;
 
-//namespace XOuranos.Explorer.Models
+//namespace Marscore.Explorer.Models
 //{
 //   public class Settings : ISettings
 //   {

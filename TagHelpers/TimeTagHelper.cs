@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace XOuranos.Explorer.TagHelpers
+namespace Marscore.Explorer.TagHelpers
 {
    public class TimeTagHelper : TagHelper
    {

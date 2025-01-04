@@ -1,4 +1,4 @@
-namespace XOuranos.Explorer
+namespace Marscore.Explorer
 {
    using Microsoft.AspNetCore.Hosting;
    using Microsoft.Extensions.Hosting;
@@ -17,7 +17,7 @@ namespace XOuranos.Explorer
           Host.CreateDefaultBuilder(args)
          .ConfigureAppConfiguration(config =>
          {
-            config.AddXOuranos("Blockore Explorer", args);
+            config.AddMarscore("Blockore Explorer", args);
          })
          .ConfigureWebHostDefaults(webBuilder =>
          {

@@ -1,7 +1,7 @@
 //using MongoDB.Bson;
 //using MongoDB.Bson.Serialization.Attributes;
 
-//namespace XOuranos.Explorer.Models
+//namespace Marscore.Explorer.Models
 //{
 //   public class Setting
 //   {

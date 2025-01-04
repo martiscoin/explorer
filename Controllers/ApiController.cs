@@ -1,8 +1,8 @@
 using System;
 using System.Globalization;
-using XOuranos.Explorer.Models;
-using XOuranos.Explorer.Services;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Models;
+using Marscore.Explorer.Services;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace XOuranos.Explorer.Controllers
+namespace Marscore.Explorer.Controllers
 {
    [Route("api")]
    [ApiController]

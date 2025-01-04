@@ -150,8 +150,8 @@
                 trigger: 'item'
             },
             legend: {
-                top: '5%',
-                left: 'center'
+                top: '0%',
+                left: 'center', textStyle: { color :'#999'}
             },
             series: [
                 {
@@ -164,13 +164,13 @@
                     },
                     emphasis: {
                         label: {
-                            show: true,
+                            show: false,
                             fontSize: 40,
                             fontWeight: 'bold'
                         }
                     },
                     labelLine: {
-                        show: true
+                        show: false
                     },
                     data: [
                         { value: @ViewBag.t1.per, name: 'Top1-25' + '(' + @ViewBag.t1.per+'%)' },

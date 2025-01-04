@@ -8,34 +8,38 @@
    <style>
       #crafted {
          position: relative;
-         color: #111111;
       }
+
+        .pagetext
+        {
+            color: #999 !important;
+        }
 
         .pagelink
         {
-            border: solid 1px #ccc;
+            border: solid 1px #999;
             padding: 7px;
             width: 100px;
             cursor:pointer;
-            color:#ccc;
+            color: #999 !important;
         }
 
             .pagelink:hover {
-                border-color: #256592;
+                border-color: #666;
             }
 
         .pagelink2
         {
-            border: solid 1px #ccc;
+            border: solid 1px #999;
             padding: 7px 10px;
             margin-left: 10px;
             margin-right: 10px;
             cursor: pointer;
-            color: #ccc;
+            color: #999 !important;
         }
 
         .pagelink2:hover {
-            border-color: #256592;
+                border-color: #666;
         }
    </style>
 }
@@ -186,16 +190,27 @@
             title: [
                 {
                     left: 'center',
-                    text: ''
+                    text: '', textStyle:{
+                        color: '#999'
+                    }
                 }
             ],
             yAxis: {
-                type: 'value'
+                type: 'value', splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#444',
+                        type: 'dashed',
+                        width: 1
+                    }
+                }
             },
             series: [
                 {
                     data: [],
-                    type: 'bar'
+                    type: 'bar', itemStyle: {
+                        color: '#da6b3c'
+                    }
                 }
             ]
         };

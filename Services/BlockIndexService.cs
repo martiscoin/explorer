@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using XOuranos.Explorer.Models.ApiModels;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Models.ApiModels;
+using Marscore.Explorer.Settings;
 using Microsoft.Extensions.Options;
 
-namespace XOuranos.Explorer.Services
+namespace Marscore.Explorer.Services
 {
    public class BlockIndexService : ServiceBase
    {

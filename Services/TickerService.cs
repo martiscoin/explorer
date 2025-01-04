@@ -1,12 +1,12 @@
 using System;
-using XOuranos.Explorer.Models;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Models;
+using Marscore.Explorer.Settings;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace XOuranos.Explorer.Services
+namespace Marscore.Explorer.Services
 {
    public class TickerService : ServiceBase
    {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace XOuranos.Explorer.Settings
+namespace Marscore.Explorer.Settings
 {
    public class ChainSettings
    {

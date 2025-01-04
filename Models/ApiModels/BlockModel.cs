@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace XOuranos.Explorer.Models.ApiModels
+namespace Marscore.Explorer.Models.ApiModels
 {
    public class BlockModel
    {

@@ -1,7 +1,7 @@
 using System;
 using RestSharp;
 
-namespace XOuranos.Explorer.Services
+namespace Marscore.Explorer.Services
 {
    public class ServiceBase
    {

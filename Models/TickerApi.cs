@@ -1,4 +1,4 @@
-namespace XOuranos.Explorer.Models
+namespace Marscore.Explorer.Models
 {
    public class TickerApi
    {

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Globalization;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
-namespace XOuranos.Explorer.Services
+namespace Marscore.Explorer.Services
 {
    public class CurrencyService : ServiceBase
    {

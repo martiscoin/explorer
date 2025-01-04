@@ -17,9 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Blockcore">
-        <HintPath>..\..\blockcore2\src\Blockcore\bin\Debug\net8.0\Blockcore.dll</HintPath>
-      </Reference>
+      <ProjectReference Include="..\..\marscoin\Marscore\Marscore.csproj" />
     </ItemGroup>
 
     <ItemGroup>

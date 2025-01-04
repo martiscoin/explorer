@@ -4,9 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using XOuranos.Explorer.Handlers;
-using XOuranos.Explorer.Services;
-using XOuranos.Explorer.Settings;
+using Marscore.Explorer.Handlers;
+using Marscore.Explorer.Services;
+using Marscore.Explorer.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
 
-namespace XOuranos.Explorer
+namespace Marscore.Explorer
 {
    public class Startup
    {
@@ -61,7 +61,7 @@ namespace XOuranos.Explorer
          //       string fileVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
          //       string productVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
 
-         //       options.SwaggerDoc("explorer", new OpenApiInfo { Description = "<a href=\"/block-explorer\">Back to Block Explorer...</a> ", Title = "XOuranos Explorer API", Version = fileVersion });
+         //       options.SwaggerDoc("explorer", new OpenApiInfo { Description = "<a href=\"/block-explorer\">Back to Block Explorer...</a> ", Title = "Marscore Explorer API", Version = fileVersion });
 
          //       // integrate xml comments
          //       if (File.Exists(XmlCommentsFilePath))
@@ -153,7 +153,7 @@ namespace XOuranos.Explorer
          //app.UseSwaggerUI(c =>
          //{
          //   c.RoutePrefix = "docs";
-         //   c.SwaggerEndpoint("/docs/explorer/openapi.json", "XOuranos Explorer API");
+         //   c.SwaggerEndpoint("/docs/explorer/openapi.json", "Marscore Explorer API");
          //});
       }
 

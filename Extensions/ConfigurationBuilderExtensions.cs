@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 
-namespace XOuranos
+namespace Marscore
 {
-   // TODO: Move this class into XOuranos.Core. Until then, this must be kept in sync between XOuranos Indexer, XOuranos Explorer and XOuranos Insight.
+   // TODO: Move this class into Marscore.Core. Until then, this must be kept in sync between Marscore Indexer, Marscore Explorer and Marscore Insight.
    public static class ConfigurationBuilderExtensions
    {
       /// <summary>
@@ -41,13 +41,13 @@ namespace XOuranos
       }
 
       /// <summary>
-      /// Use to enable dynamic loading of blockchain configurations from the official XOuranos Chains website.
+      /// Use to enable dynamic loading of blockchain configurations from the official Marscore Chains website.
       /// </summary>
       /// <param name="builder"></param>
       /// <param name="title"></param>
       /// <param name="args"></param>
       /// <returns></returns>
-      public static IConfigurationBuilder AddXOuranos(this IConfigurationBuilder builder, string title, string[] args)
+      public static IConfigurationBuilder AddMarscore(this IConfigurationBuilder builder, string title, string[] args)
       {
          string chain = args
             .DefaultIfEmpty("--chain=BTC")
@@ -61,7 +61,7 @@ namespace XOuranos
          }
 
          Console.WriteLine("CHAIN: " + chain);
-         string url = chain.Contains("/") ? chain : $"https://chains.XOuranos.net/chains/{chain}.json";
+         string url = chain.Contains("/") ? chain : $"https://chains.Marscore.net/chains/{chain}.json";
          Console.WriteLine("SETUP: " + url);
 
          //var http = new HttpClient();

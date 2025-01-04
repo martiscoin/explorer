@@ -12,14 +12,15 @@
 }
 
 .coin-value-upper {
+    color: #23A236;
 }
 
 .coin-value-lower {
-    color: gray;
+    color: #23A236;
 }
 
 .coin-value-tag {
-    color: gray;
+    color: #23A236;
 }
 
 .coin-value-positive {

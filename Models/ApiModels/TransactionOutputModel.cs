@@ -1,4 +1,4 @@
-namespace XOuranos.Explorer.Models.ApiModels
+namespace Marscore.Explorer.Models.ApiModels
 {
    public class TransactionOutputModel
    {

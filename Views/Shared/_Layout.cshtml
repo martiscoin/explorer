@@ -12,12 +12,12 @@
    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css">
    <link href="~/css/all.css?v2" rel="stylesheet" type="text/css">
    <environment include="Development">
-      <link href="~/css/default.css" rel="stylesheet" type="text/css">
+      <link href="~/css/default.css?v=@DateTime.Now.Microsecond" rel="stylesheet" type="text/css">
    </environment>
    <environment exclude="Development">
       <link href="~/css/default.min.css" rel="stylesheet" type="text/css">
    </environment>
-   <link href="~/css/explorer.css" rel="stylesheet" type="text/css">
+    <link href="~/css/explorer.css?v=@DateTime.Now.Microsecond" rel="stylesheet" type="text/css">
    @RenderSection("Style", false)
     @if (Context.Request.Path.Equals(Url.Action("Network", "BlockExplorer")))
     {
@@ -32,15 +32,15 @@
         <script src="~/js/echarts.min.js"></script>
     }
 </head>
-<body>
-    <header class="header-area" style="background:#0c3e75">
+<body style="background:#000;">
+    <header class="header-area" style="background:#000">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
                         <a asp-controller="Home" asp-action="Index" class="logo ">
                             <img src="~/images/logo.png" class="" alt="" style="margin-bottom:7px;"/>
-                            <span class="text-white">@ViewBag.Setup.Title</span> <span class="text-info text-hide">v2</span>
+                            @* <span class="text-white">@ViewBag.Setup.Title</span> <span class="text-info text-hide">v2</span> *@
 
                         </a>
                         <ul class="nav">
@@ -96,7 +96,7 @@
         @if (string.IsNullOrWhiteSpace(ViewBag.Setup.Footer))
         {
             <div id="crafted">
-                <p class="text-center small">Ouranos Explorer - <a href="https://www.xouranos.com/">www.xouranos.com</a></p>
+                <p class="text-center small">Marscore Explorer - <a href="https://marscoin.network/">marscoin.network</a></p>
             </div>
         }
         else

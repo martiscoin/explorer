@@ -11,12 +11,7 @@
    <link rel="icon" type="image/png" href="/images/favicon.ico">
    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css">
    <link href="~/css/all.css?v2" rel="stylesheet" type="text/css">
-   <environment include="Development">
-      <link href="~/css/default.css?v=@DateTime.Now.Microsecond" rel="stylesheet" type="text/css">
-   </environment>
-   <environment exclude="Development">
-      <link href="~/css/default.min.css" rel="stylesheet" type="text/css">
-   </environment>
+    <link href="~/css/default.css?v=@DateTime.Now.Microsecond" rel="stylesheet" type="text/css">
     <link href="~/css/explorer.css?v=@DateTime.Now.Microsecond" rel="stylesheet" type="text/css">
    @RenderSection("Style", false)
     @if (Context.Request.Path.Equals(Url.Action("Network", "BlockExplorer")))

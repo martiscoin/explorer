@@ -48,7 +48,7 @@ namespace Marscore.Explorer.Controllers
         }
 
         [HttpGet]
-        [Route("blocks")]
+        //[Route("blocks")]
         public IActionResult Index()
         {
             ViewBag.Features = settings.Features;

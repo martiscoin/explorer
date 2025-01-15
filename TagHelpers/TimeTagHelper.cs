@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Settings;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Marscore.Explorer.TagHelpers
+namespace Martiscoin.Explorer.TagHelpers
 {
    public class TimeTagHelper : TagHelper
    {

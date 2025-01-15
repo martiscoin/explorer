@@ -1,4 +1,4 @@
-namespace Marscore.Explorer.Settings
+namespace Martiscoin.Explorer.Settings
 {
    public class TickerSettings
    {

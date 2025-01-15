@@ -1,4 +1,4 @@
-﻿namespace Marscore.Explorer.Models.ApiModels
+﻿namespace Martiscoin.Explorer.Models.ApiModels
 {
    public class BlockChainInfo
    {

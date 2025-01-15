@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 
-namespace Marscore
+namespace Martiscoin
 {
-   // TODO: Move this class into Marscore.Core. Until then, this must be kept in sync between Marscore Indexer, Marscore Explorer and Marscore Insight.
+   // TODO: Move this class into Martiscoin.Core. Until then, this must be kept in sync between Martiscoin Indexer, Martiscoin Explorer and Martiscoin Insight.
    public static class ConfigurationBuilderExtensions
    {
       /// <summary>
@@ -41,13 +41,13 @@ namespace Marscore
       }
 
       /// <summary>
-      /// Use to enable dynamic loading of blockchain configurations from the official Marscore Chains website.
+      /// Use to enable dynamic loading of blockchain configurations from the official Martiscoin Chains website.
       /// </summary>
       /// <param name="builder"></param>
       /// <param name="title"></param>
       /// <param name="args"></param>
       /// <returns></returns>
-      public static IConfigurationBuilder AddMarscore(this IConfigurationBuilder builder, string title, string[] args)
+      public static IConfigurationBuilder AddMartiscoin(this IConfigurationBuilder builder, string title, string[] args)
       {
          string chain = args
             .DefaultIfEmpty("--chain=BTC")
@@ -61,7 +61,7 @@ namespace Marscore
          }
 
          Console.WriteLine("CHAIN: " + chain);
-         string url = chain.Contains("/") ? chain : $"https://chains.Marscore.net/chains/{chain}.json";
+         string url = chain.Contains("/") ? chain : $"https://chains.Martiscoin.net/chains/{chain}.json";
          Console.WriteLine("SETUP: " + url);
 
          //var http = new HttpClient();

@@ -1,12 +1,12 @@
 using System;
-using Marscore.Explorer.Models;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Models;
+using Martiscoin.Explorer.Settings;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace Marscore.Explorer.Services
+namespace Martiscoin.Explorer.Services
 {
    public class TickerService : ServiceBase
    {

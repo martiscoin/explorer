@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\marscoin\Marscore\Marscore.csproj" />
+      <ProjectReference Include="..\core\Martiscoin.core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

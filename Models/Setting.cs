@@ -1,7 +1,7 @@
 //using MongoDB.Bson;
 //using MongoDB.Bson.Serialization.Attributes;
 
-//namespace Marscore.Explorer.Models
+//namespace Martiscoin.Explorer.Models
 //{
 //   public class Setting
 //   {

@@ -1,7 +1,7 @@
 using System;
 using RestSharp;
 
-namespace Marscore.Explorer.Services
+namespace Martiscoin.Explorer.Services
 {
    public class ServiceBase
    {

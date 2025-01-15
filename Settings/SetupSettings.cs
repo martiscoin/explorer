@@ -1,10 +1,10 @@
-namespace Marscore.Explorer.Settings
+namespace Martiscoin.Explorer.Settings
 {
    public class SetupSettings
    {
       public SetupSettings()
       {
-         Title = "Marscore Explorer";
+         Title = "Martiscoin Explorer";
       }
 
       public string Title { get; set; }

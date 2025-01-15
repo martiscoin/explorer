@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Marscore.Explorer.Models.ApiModels
+namespace Martiscoin.Explorer.Models.ApiModels
 {
    public class TransactionDetailsModel
    {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
-namespace Marscore.Explorer.Handlers
+namespace Martiscoin.Explorer.Handlers
 {
    public class FavoriteIconHandler
    {

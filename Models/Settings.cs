@@ -1,7 +1,7 @@
 //using System.Threading.Tasks;
 //using MongoDB.Driver;
 
-//namespace Marscore.Explorer.Models
+//namespace Martiscoin.Explorer.Models
 //{
 //   public class Settings : ISettings
 //   {

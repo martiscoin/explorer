@@ -1,4 +1,4 @@
-namespace Marscore.Explorer
+namespace Martiscoin.Explorer
 {
    using Microsoft.AspNetCore.Hosting;
    using Microsoft.Extensions.Hosting;
@@ -17,7 +17,7 @@ namespace Marscore.Explorer
           Host.CreateDefaultBuilder(args)
          .ConfigureAppConfiguration(config =>
          {
-            config.AddMarscore("Blockore Explorer", args);
+            config.AddMartiscoin("Blockore Explorer", args);
          })
          .ConfigureWebHostDefaults(webBuilder =>
          {

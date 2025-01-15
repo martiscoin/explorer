@@ -4,9 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Marscore.Explorer.Handlers;
-using Marscore.Explorer.Services;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Handlers;
+using Martiscoin.Explorer.Services;
+using Martiscoin.Explorer.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
 
-namespace Marscore.Explorer
+namespace Martiscoin.Explorer
 {
    public class Startup
    {
@@ -61,7 +61,7 @@ namespace Marscore.Explorer
          //       string fileVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
          //       string productVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
 
-         //       options.SwaggerDoc("explorer", new OpenApiInfo { Description = "<a href=\"/block-explorer\">Back to Block Explorer...</a> ", Title = "Marscore Explorer API", Version = fileVersion });
+         //       options.SwaggerDoc("explorer", new OpenApiInfo { Description = "<a href=\"/block-explorer\">Back to Block Explorer...</a> ", Title = "Martiscoin Explorer API", Version = fileVersion });
 
          //       // integrate xml comments
          //       if (File.Exists(XmlCommentsFilePath))
@@ -153,7 +153,7 @@ namespace Marscore.Explorer
          //app.UseSwaggerUI(c =>
          //{
          //   c.RoutePrefix = "docs";
-         //   c.SwaggerEndpoint("/docs/explorer/openapi.json", "Marscore Explorer API");
+         //   c.SwaggerEndpoint("/docs/explorer/openapi.json", "Martiscoin Explorer API");
          //});
       }
 

@@ -1,11 +1,11 @@
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Settings;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 
-namespace Marscore.Explorer.Services
+namespace Martiscoin.Explorer.Services
 {
    public class WeightService : ServiceBase
    {

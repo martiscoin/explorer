@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Marscore.Explorer.Models.ApiModels;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Models.ApiModels;
+using Martiscoin.Explorer.Settings;
 using Microsoft.Extensions.Options;
 
-namespace Marscore.Explorer.Services
+namespace Martiscoin.Explorer.Services
 {
    public class BlockIndexService : ServiceBase
    {

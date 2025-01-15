@@ -1,13 +1,13 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Settings;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Marscore.Explorer.Services
+namespace Martiscoin.Explorer.Services
 {
    public class DataUpdateService : IHostedService, IDisposable
    {

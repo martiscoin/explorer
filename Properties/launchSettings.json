@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Marscore.Explorer": {
+    "Martiscoin.Explorer": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

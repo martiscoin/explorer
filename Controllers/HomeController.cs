@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
-using Marscore.Explorer.Models;
-using Marscore.Explorer.Services;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Models;
+using Martiscoin.Explorer.Services;
+using Martiscoin.Explorer.Settings;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using QRCoder.Core;
 
-namespace Marscore.Explorer.Controllers
+namespace Martiscoin.Explorer.Controllers
 {
    [ApiExplorerSettings(IgnoreApi = true)]
    public class HomeController : Controller

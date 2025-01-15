@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Marscore.Explorer.Models;
-using Marscore.Explorer.Models.ApiModels;
-using Marscore.Explorer.Services;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Models;
+using Martiscoin.Explorer.Models.ApiModels;
+using Martiscoin.Explorer.Services;
+using Martiscoin.Explorer.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
-using Marscore.NBitcoin.BouncyCastle.math;
-using Marscore.NBitcoin;
+using Martiscoin.NBitcoin.BouncyCastle.math;
+using Martiscoin.NBitcoin;
 
-namespace Marscore.Explorer.Controllers
+namespace Martiscoin.Explorer.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
     [Route("block-explorer")]

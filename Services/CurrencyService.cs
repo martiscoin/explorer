@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Globalization;
-using Marscore.Explorer.Settings;
+using Martiscoin.Explorer.Settings;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
-namespace Marscore.Explorer.Services
+namespace Martiscoin.Explorer.Services
 {
    public class CurrencyService : ServiceBase
    {

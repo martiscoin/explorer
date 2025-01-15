@@ -1,4 +1,4 @@
-namespace Marscore.Explorer.Models
+namespace Martiscoin.Explorer.Models
 {
    public class TickerApi
    {

@@ -349,7 +349,7 @@ namespace Martiscoin.Explorer.Controllers
             {
                 return RedirectToAction("Index");
             }
-            else if (searchBlockExplorer.Query.Length == 34)
+            else if (searchBlockExplorer.Query.Length == 43)
             {
                 return RedirectToAction("Address", new { address = searchBlockExplorer.Query });
             }

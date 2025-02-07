@@ -105,7 +105,7 @@ namespace Martiscoin.Explorer.Controllers
         [Route("netstatsblocktime")]
         public dynamic GetNetworkStatsBlockTime()
         {
-            List<dynamic> blocks = indexService.GetLast50Blocks();
+            List<dynamic> blocks = indexService.GetLast50Blocks(0);
             dynamic result = null;
             List<string> blockindex = new List<string>();
             List<double> blocktime = new List<double>();
@@ -147,9 +147,9 @@ namespace Martiscoin.Explorer.Controllers
 
         [HttpGet]
         [Route("netstatshashrate")]
-        public dynamic GetNetworkStatsHashrate()
+        public dynamic GetNetworkStatsHashrate(int pow)
         {
-            List<dynamic> blocks = indexService.GetLast50Blocks();
+            List<dynamic> blocks = indexService.GetLast50Blocks(pow);
             dynamic result = null;
             List<string> blockindex = new List<string>();
             List<double> hashrates = new List<double>();
@@ -178,9 +178,9 @@ namespace Martiscoin.Explorer.Controllers
 
         [HttpGet]
         [Route("netstatsdifficulty")]
-        public dynamic GetNetworkStatsDifficulty()
+        public dynamic GetNetworkStatsDifficulty(int pow)
         {
-            List<dynamic> blocks = indexService.GetLast50Blocks();
+            List<dynamic> blocks = indexService.GetLast50Blocks(pow);
             dynamic result = null;
             List<string> blockindex = new List<string>();
             List<double> difficulty = new List<double>();

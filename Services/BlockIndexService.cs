@@ -75,9 +75,9 @@ namespace Martiscoin.Explorer.Services
          return Execute<dynamic>(GetRequest($"/insight/richlist?offset=0&limit=100"));
       }
 
-      public List<dynamic> GetLast50Blocks()
+      public List<dynamic> GetLast50Blocks(int pow)
       {
-         return Execute<dynamic>(GetRequest($"/query/block?limit=30"));
+            return Execute<dynamic>(GetRequest($"/query/block?limit=30&pow=" + pow));
       }
 
         public List<dynamic> GetLastBlocks(int count,long offset,int sort)

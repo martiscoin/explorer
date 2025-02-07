@@ -16,19 +16,31 @@
 <section class="block-explorer-section section bg-bottom">
    <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="center-heading">
-                    <h2 class="section-title">Hashrate</h2>
+                    <h2 class="section-title">Pow Hashrate</h2>
                 </div>
                 <div id="echart" style="height: 300px"></div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="center-heading">
-                    <h2 class="section-title">Difficulty</h2>
+                    <h2 class="section-title">Pow Difficulty</h2>
                 </div>
                 <div id="echart2" style="height: 300px"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="center-heading">
+                    <h2 class="section-title">Pos Hashrate</h2>
+                </div>
+                <div id="echart3" style="height: 300px"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="center-heading">
+                    <h2 class="section-title">Pos Difficulty</h2>
+                </div>
+                <div id="echart4" style="height: 300px"></div>
             </div>
         </div>
       <div class="row">
@@ -63,7 +75,7 @@
                             <tr>
                                 <td><strong>Block Reward</strong> (MSC)</td>
                                 <td>
-                                    1
+                                    2
                                 </td>
                             </tr>
                             <tr>
@@ -179,7 +191,7 @@
         setInterval(loadnetstatshashrate, 1000 * 60);
         function loadnetstatshashrate() {
             $.ajax({
-                url: "/block-explorer/netstatshashrate",
+                url: "/block-explorer/netstatshashrate?pow=1",
                 success: function (res) {
                     option.xAxis[0].data = res.x;
                     option.series[0].data = res.y;
@@ -270,7 +282,7 @@
         setInterval(loadnetstatsdifficulty, 1000 * 60);
         function loadnetstatsdifficulty() {
             $.ajax({
-                url: "/block-explorer/netstatsdifficulty",
+                url: "/block-explorer/netstatsdifficulty?pow=1",
                 success: function (res) {
                     option.xAxis[0].data = res.x;
                     option.series[0].data = res.y;
@@ -281,4 +293,180 @@
         }
     });
     
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var dom = document.getElementById('echart3');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        // prettier-ignore
+        const dateList = [4324];
+        const valueList = [0.5566];
+        option = {
+            // Make gradient line here
+            visualMap: [
+                {
+                    type: 'continuous',
+                }
+            ],
+            title: [
+                {
+                    left: 'center',
+                    text: 'Last 30 blocks (avg )', textStyle: {
+                        color: '#999'
+                    }
+                }
+            ],
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [
+                {
+                    data: dateList,
+                    axisLabel: {
+                        show: true,
+                        rotate: 60,
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value', splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#444',
+                            type: 'dashed',
+                            width: 1
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    type: 'line',
+                    showSymbol: false,
+                    data: valueList, itemStyle: {
+                        color: '#da6b3c'
+                    }
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+        loadnetstatshashrate();
+        setInterval(loadnetstatshashrate, 1000 * 60);
+        function loadnetstatshashrate() {
+            $.ajax({
+                url: "/block-explorer/netstatshashrate?pow=2",
+                success: function (res) {
+                    option.xAxis[0].data = res.x;
+                    option.series[0].data = res.y;
+                    option.title[0].text = "Last 30 blocks (avg hashrate " + res.avg + " MH/s)";
+                    myChart.setOption(option);
+                }
+            });
+        }
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var dom = document.getElementById('echart4');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        // prettier-ignore
+        const dateList = [4324];
+        const valueList = [0.5566];
+        option = {
+            // Make gradient line here
+            visualMap: [
+                {
+                    type: 'continuous',
+                }
+            ],
+            title: [
+                {
+                    left: 'center',
+                    text: 'Last 30 blocks (avg )', textStyle: {
+                        color: '#999'
+                    }
+                }
+            ],
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [
+                {
+                    data: dateList,
+                    axisLabel: {
+                        show: true,
+                        rotate: 60,
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value', splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#444',
+                            type: 'dashed',
+                            width: 1
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    type: 'line',
+                    showSymbol: false,
+                    data: valueList, itemStyle: {
+                        color: '#da6b3c'
+                    }
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+        loadnetstatsdifficulty();
+        setInterval(loadnetstatsdifficulty, 1000 * 60);
+        function loadnetstatsdifficulty() {
+            $.ajax({
+                url: "/block-explorer/netstatsdifficulty?pow=2",
+                success: function (res) {
+                    option.xAxis[0].data = res.x;
+                    option.series[0].data = res.y;
+                    option.title[0].text = "Last 30 blocks (avg difficulty " + res.avg + ")";
+                    myChart.setOption(option);
+                }
+            });
+        }
+    });
+
 </script>

@@ -218,7 +218,7 @@ namespace Martiscoin.Explorer.Controllers
             ViewBag.Chain = chainSettings;
             Dictionary<string, object> supply = indexService.GetSupply();
             ViewBag.circulating = supply.GetValueOrDefault("circulating").ToString();
-            ViewBag.Mined = ((decimal.Parse(ViewBag.circulating) / 100_000_000) * 100).ToString("0.00");
+            ViewBag.Mined = ((decimal.Parse(ViewBag.circulating) / 21_000_000) * 100).ToString("0.00");
             return View();
         }
 
